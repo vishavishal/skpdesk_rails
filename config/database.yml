@@ -1,3 +1,4 @@
+#Default user postgres
 default: &default
   adapter: postgresql
   encoding: unicode
