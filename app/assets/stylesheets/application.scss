@@ -10,15 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "bootstrap";
 
 @font-face {
-  font-family: 'ubuntu';
-  src: url('ubuntu.ttf');
+  font-family: 'ubuntul';
+  src: url('ubuntul.ttf');
 }
 body {
-  background-color: #795f1f;
-  font-family: "ubuntu";
+  background-color: #77216F;
+  font-family: "ubuntul";
+  color: white;
 }
