@@ -4,20 +4,20 @@
   <%= form_for @project, url: project_create_path do |f| %>
     <div class="form-group row">
       <div class="col-5">
-        <%= f.label :title, 'Project Title', class: "col-sm-4 col-form-label"%>
-        <%= f.text_field :title     %>
+        <%= f.label       :title, 'Project Title', class: "col-sm-4 col-form-label"%>
+        <%= f.text_field  :title     %>
       </div>
     </div>
     <div class="form-group row">
       <div class="col-5">
-        <%= f.label :client, 'Client mail', class: "col-sm-4 col-form-label" %>
-        <%= f.text_field :client    %>
+        <%= f.label       :client, 'Client mail', class: "col-sm-4 col-form-label" %>
+        <%= f.text_field  :client    %>
       </div>
     </div>
     <div class="form-group row">
       <div class="col-5">
-        <%= f.label :project_type, 'Project Type', class: "col-sm-4 col-form-label" %>
-        <%= f.text_field :project_type      %>
+        <%= f.label       :project_type, 'Project Type', class: "col-sm-4 col-form-label" %>
+        <%= f.text_field  :project_type      %>
       </div>
     </div>
     <br>

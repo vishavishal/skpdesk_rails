@@ -1,7 +1,7 @@
 Project.destroy_all
 
 project_types = ["Residential", "Office", "Commercial"]
-10.times do |i|
+5.times do |i|
   
   title         = "%s %s" % [RandomWord.nouns.next.capitalize, RandomWord.adjs.next]
   client        = Faker::Internet.email
