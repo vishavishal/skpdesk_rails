@@ -29,8 +29,11 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+
+#-------------------------------- Additions ---------------------
 gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'random-word', '~> 1.3'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.1.0'
+gem 'devise'
