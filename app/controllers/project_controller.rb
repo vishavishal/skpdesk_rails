@@ -9,8 +9,10 @@ class ProjectController < ApplicationController
   end
 
   def create 
+    proj_h = project_params 
+    proj_h[:designer_email] = current_user.email
     new_project = Project.new(project_params)
-    puts "New project : #{new_project} : #{new_project.errors.inspect}"
+    puts "New project : #{new_project} : #{proj_h}"
     if new_project.valid?
       new_project.save
       redirect_to root_path
