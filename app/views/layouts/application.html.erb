@@ -12,8 +12,9 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice devise_alert_id"><%= notice %></p>
+    <p class="alert devise_alert_id"><%= alert %></p>
     <%= yield %>
+    <%= button_to "logout", destroy_user_session_path, method: :delete  %>
   </body>
 </html>

@@ -11,19 +11,22 @@ class ProjectController < ApplicationController
   def create 
     proj_h = project_params 
     proj_h[:designer_email] = current_user.email
-    new_project = Project.new(project_params)
-    puts "New project : #{new_project} : #{proj_h}"
-    if new_project.valid?
-      new_project.save
+    @project = Project.new(proj_h)
+    puts "New project : #{@project} : #{proj_h}"
+    @project_errors = "Same"
+    if @project.valid?
+      @project.save
       redirect_to root_path
     else
+      flash[:notice] = @project.errors.full_messages.first
       redirect_to project_new_path
     end
   end
 
   private 
     def get_all_projects
-      @projects = Project.all.sort_by(&:created_at).reverse
+      #@projects = Project.all.sort_by(&:created_at).reverse
+      @projects = Project.where(designer_email: current_user.email)
     end
     
     def project_params 

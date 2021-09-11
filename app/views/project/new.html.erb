@@ -1,5 +1,22 @@
-<h1>Create Project</h1>
+<style>
+  .devise_alert_id {
+    display: none;
+  }
+</style>
+<script type="text/javascript">
+  $(function() {
+    $('.devise_alert_id').hide();
+    //$('.alert').slideUp(1500);
+    $('.alert').fadeOut(3000);
+  });
+</script>
 
+<h1>Create Project</h1>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <%= msg %>
+  </div>
+<% end %>
 <div id="create_project">
   <%= form_for @project, url: project_create_path do |f| %>
     <div class="form-group row">

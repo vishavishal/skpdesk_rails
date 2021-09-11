@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 //= require jquery3
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
 
@@ -11,6 +12,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+require("channels")
+require("jquery")
