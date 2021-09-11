@@ -8,32 +8,35 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'custom' %>
+    <%= stylesheet_link_tag 'main_layout' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <style>
         #common_right_navbar {
             margin-left: auto;
         }
+        .active{
+          color: red;
+        }
     </style>
+    <script>
+      $(document).ready(function () {
+        $(".nav a").on("click", function() {
+          alert("Hi...00");
+          $(".nav").find(".active").removeClass("active");
+          $(this).parent().addClass("active");
+        });
+      });
+    </script>
+
+    <%# Yield all the head codes here! %>
+    <% if content_for?(:head) %>
+        <%= yield(:head) %>
+    <% end %> 
   </head>
 
   <body>  
-    <nav class="navbar navbar-expand-sm navbar-dark bg-danger text-white"> 
-      <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-              SkpDesk
-            </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto" id="common_right_navbar">
-        <li class="nav-item">
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-warning' %>
-        </li>
-      </ul>
-    </nav>
-    <p class="notice devise_alert_id"><%= notice %></p>
-    <p class="alert devise_alert_id"><%= alert %></p>
+    <%= render partial: "dashboard/sidebar" %>
 
     <%= yield %>
     

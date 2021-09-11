@@ -1,0 +1,50 @@
+<div class="btn"> 
+  <span class="fas fa-bars"></span>
+</div>
+<nav class="sidebar">
+    <div class="text"> BBBootstrap.com </div>
+    <ul class="main_side">
+      <li class="active"><a href="#">Dashboard</a></li>
+      <li> <a href="#" id="1">Pages <span class="fas fa-caret-down"></span> </a>
+          <ul class="item-show-1">
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Our Team</a></li>
+          </ul>
+      </li>
+      <li> <a href="#" id="2">Services <span class="fas fa-caret-down"></span> </a>
+          <ul class="item-show-2">
+              <li><a href="#">App Design</a></li>
+              <li><a href="#">Web Design</a></li>
+          </ul>
+      </li>
+      <li><a href="#">Users</a></li>
+      <li><a href="#">Message</a></li>
+      <li><a href="#">Bookmark</a></li>
+      <li><a href="#">Files</a></li>
+      <li>
+        <%= link_to "All projects", projects_path %>
+      </li>
+      <li>
+        <%= link_to "New project", project_new_path %>
+      </li> 
+    </ul>
+</nav>
+
+<script>
+  $('.btn').click(function(){
+    $(this).toggleClass("click");
+    $('.sidebar').toggleClass("show");
+  });
+
+
+  $('.sidebar ul li a').click(function(){
+    var id = $(this).attr('id');
+    $('nav ul li ul.item-show-'+id).toggleClass("show");
+    $('nav ul li #'+id+' span').toggleClass("rotate");
+
+  });
+
+  $('nav ul li').click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+  });
+</script>

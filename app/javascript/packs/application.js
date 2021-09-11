@@ -14,6 +14,7 @@ import "channels"
 
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
+import "@fortawesome/fontawesome-free/js/all"
 
 Rails.start()
 Turbolinks.start()
