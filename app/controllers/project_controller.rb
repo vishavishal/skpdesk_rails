@@ -13,7 +13,6 @@ class ProjectController < ApplicationController
     proj_h[:designer_email] = current_user.email
     @project = Project.new(proj_h)
     puts "New project : #{@project} : #{proj_h}"
-    @project_errors = "Same"
     if @project.valid?
       @project.save
       redirect_to root_path

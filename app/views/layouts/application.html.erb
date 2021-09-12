@@ -8,16 +8,33 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'custom' %>
-    <%= stylesheet_link_tag 'main_layout' %>
+    <%
+=begin%>
+ <%= stylesheet_link_tag 'main_layout' %> 
+<%
+=end%>
+    <%= stylesheet_link_tag 'sidebar3' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <style>
-        #common_right_navbar {
+        /* #common_right_navbar {
             margin-left: auto;
         }
         .active{
           color: red;
-        }
+        } */
+
+          #user_profile_div{
+            position: absolute;
+            bottom: 0;
+          }
+          #sidebar, #user_profile_div {
+            word-wrap: break-word;
+          }
+          #user_email_div {
+            word-wrap: break-word;
+            overflow:hidden;
+          }
     </style>
     <script>
       $(document).ready(function () {
@@ -36,9 +53,10 @@
   </head>
 
   <body>  
-    <%= render partial: "dashboard/sidebar" %>
-
-    <%= yield %>
-    
+    <% if current_user %> 
+      <%= render partial: "dashboard/sidebar3" %>
+    <% else %>
+      <%= render template: "/devise/sessions/new" %>
+    <% end %>
   </body>
 </html>

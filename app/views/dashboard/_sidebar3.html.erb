@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>SkpDesk</h3>
+          <strong>BS</strong>
+      </div>
+
+      <ul class="list-unstyled components">
+          <li>
+            <%= link_to "All projects", projects_path %>
+          </li>
+          <li>
+            <%= link_to "New project", project_new_path %>
+          </li> 
+      </ul>
+
+      
+      <div id="user_profile_div">
+        <hr>
+        <%= button_to "Signout", destroy_user_session_path, method: :delete  %>
+        <div id="user_email_div">
+          <%= current_user.email %>
+        </div>
+      </div>
+  </nav>
+
+  <div id="content">
+    <%= yield %>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            //$('#sidebar').toggleClass('active');
+             $(this).addClass('active').siblings().removeClass('active');
+        });
+
+        //Not working recheck
+        $('#sidebar ul li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    });
+</script>
+
+
+<%= 
+=begin
+
+Dropdown 
+
+<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+    <i class="fas fa-copy"></i>
+    Pages
+</a>
+<ul class="collapse list-unstyled" id="pageSubmenu">
+    <li>
+        <a href="#">Page 1</a>
+    </li>
+    <li>
+        <a href="#">Page 2</a>
+    </li>
+    <li>
+        <a href="#">Page 3</a>
+    </li>
+</ul>
+=end
+%>
